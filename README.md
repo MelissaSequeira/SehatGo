@@ -1,5 +1,4 @@
-# flutter_application_1
-
+# Simple TODO app
 A new Flutter project.
 
 ## Getting Started
