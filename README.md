@@ -1,28 +1,29 @@
-📝 To-Do App (Flutter)
-A simple To-Do list app built with Flutter.
+📝 **To-Do App (Flutter)**
+_A simple To-Do list app built with Flutter._
 
-🚀 Getting Started
+🚀 **Getting Started**
 Follow these steps to run the project on your Android device.
 
-📌 Prerequisites
+📌 **Prerequisites**
 Make sure you have the following installed:
 
-Flutter SDK
+_Flutter SDK_
 
 Android Studio (or VS Code with Flutter extension)
 
 A physical Android device with USB Debugging enabled or an emulator
 
-🔧 Setup & Installation
+🔧** Setup & Installation**
 Clone the Repository
 
-git clone [https://github.com/yourusername/flutter-todo.git](https://github.com/MelissaSequeira/SehatGo)
-cd flutter-todo
+_git clone [https://github.com/yourusername/flutter-todo.git](https://github.com/MelissaSequeira/SehatGo)_
+_cd flutter-todo_
+
 Install Dependencies
 
+_flutter pub get_
 
-flutter pub get
-Connect Your Device
+**Connect Your Device**
 
 Enable Developer Options & USB Debugging
 
@@ -30,20 +31,21 @@ Connect your Android device via USB
 
 Run:
 
-flutter devices
+_flutter devices_
+
 If your device appears, you're good to go! 🎉
 
-Run the App
+**Run the App**
 
-flutter run
+_flutter run_
 This will build and launch the app on your device/emulator.
 
-📸 Screenshots
-(Add images of your app here)
-
 ✨ Features
+
 ✔️ Add tasks
+
 ✔️ Delete tasks
+
 ✔️ Simple & minimal UI
 
 📜 License
