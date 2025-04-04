@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart'; // Make sure this file is in your lib folder
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
@@ -8,6 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Firebase To-Do App',
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+      ),
       home: ToDoScreen(),
     );
   }
@@ -19,15 +29,15 @@ class ToDoScreen extends StatefulWidget {
 }
 
 class _ToDoState extends State<ToDoScreen> {
-  final List<String> _tasks = []; // Fixed naming
-  final List<bool> _completed = []; // Tracks completed tasks
+  final List<String> _tasks = [];
+  final List<bool> _completed = [];
   final TextEditingController _controller = TextEditingController();
 
   void _addTask() {
     setState(() {
       if (_controller.text.isNotEmpty) {
         _tasks.add(_controller.text);
-        _completed.add(false); // New task starts as incomplete
+        _completed.add(false);
         _controller.clear();
       }
     });
@@ -41,7 +51,7 @@ class _ToDoState extends State<ToDoScreen> {
   }
 
   @override
-  Widget build(BuildContext context) { // Fixed parameter
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('TODO LIST')),
       body: Padding(
@@ -51,11 +61,12 @@ class _ToDoState extends State<ToDoScreen> {
             TextField(
               controller: _controller,
               decoration: InputDecoration(
-                hintText: 'Enter tasks',
+                hintText: 'Enter task',
                 border: OutlineInputBorder(),
                 contentPadding: EdgeInsets.all(10),
               ),
             ),
+            SizedBox(height: 10),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -73,7 +84,7 @@ class _ToDoState extends State<ToDoScreen> {
                   return Card(
                     child: ListTile(
                       leading: Checkbox(
-                        value: _completed[index], 
+                        value: _completed[index],
                         onChanged: (value) {
                           setState(() {
                             _completed[index] = value!;
@@ -83,7 +94,9 @@ class _ToDoState extends State<ToDoScreen> {
                       title: Text(
                         _tasks[index],
                         style: TextStyle(
-                          decoration: _completed[index] ? TextDecoration.lineThrough : null,
+                          decoration: _completed[index]
+                              ? TextDecoration.lineThrough
+                              : null,
                         ),
                       ),
                       trailing: IconButton(
